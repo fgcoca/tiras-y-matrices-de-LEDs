@@ -34,6 +34,13 @@ nav:
   - Software: 
     - ArduinoBlocks: temas/softAB.md
     - IDE 2: temas/softIDE.md
+  - Alimentación: temas/alimentar.md
+  - Programación:
+    - Matrices de 8x32: temas/matriz8x32.md
+    - Matrices de 16x16: temas/matriz16x16.md
+  - El juego de la serpiente:
+    - 3D: temas/3d.md
+    - Programa: temas/serpiente.md
   - Miscelanea:
     - Autor: Miscelanea/about.md 
     - Licencias: Miscelanea/lic.md
