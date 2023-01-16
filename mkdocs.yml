@@ -36,8 +36,10 @@ nav:
     - IDE 2: temas/softIDE.md
   - Alimentación: temas/alimentar.md
   - Programación:
-    - Matrices de 8x32: temas/matriz8x32.md
-    - Matrices de 16x16: temas/matriz16x16.md
+    - Matriz WS2812 8x32: temas/matriz8x32.md
+    - Matriz WS2812 16x16: temas/matriz16x16.md
+    - Matriz WS2812 8x8: temas/matriz8x8.md
+    - Matriz MAX7219 8x8: temas/LED8x8.md
   - El juego de la serpiente:
     - 3D: temas/3d.md
     - Programa: temas/serpiente.md
