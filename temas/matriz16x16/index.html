@@ -1,0 +1,550 @@
+<!doctype html><html lang=es class=no-js> <head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Repositorio con web dedicado a dar unas notas sobre algunos de estos elementos. El tema será tratado tanto desde el entorno gráfico de ArduinoBlocks como desde el IDE de Arduino."><meta name=author content="Federico Coca"><link href=https://fgcoca.github.io/tiras-y-matrices-de-LEDs/temas/matriz16x16/ rel=canonical><link rel=icon href=../../img/favicon.png><meta name=generator content="mkdocs-1.4.2, mkdocs-material-8.5.10"><title>Matrices de 16x16 - Tiras y matrices de LEDs</title><link rel=stylesheet href=../../assets/stylesheets/main.975780f9.min.css><link rel=stylesheet href=../../assets/stylesheets/palette.2505c338.min.css><meta name=theme-color content=#02a6f2><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback"><style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style><script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script></head> <body dir=ltr data-md-color-scheme=default data-md-color-primary=light-blue data-md-color-accent=deep-purple> <input class=md-toggle data-md-toggle=drawer type=checkbox id=__drawer autocomplete=off> <input class=md-toggle data-md-toggle=search type=checkbox id=__search autocomplete=off> <label class=md-overlay for=__drawer></label> <div data-md-component=skip> <a href=#descripcion class=md-skip> Saltar a contenido </a> </div> <div data-md-component=announce> </div> <header class=md-header data-md-component=header> <nav class="md-header__inner md-grid" aria-label=Cabecera> <a href=../.. title="Tiras y matrices de LEDs" class="md-header__button md-logo" aria-label="Tiras y matrices de LEDs" data-md-component=logo> <img src=../../img/favicon.png alt=logo> </a> <label class="md-header__button md-icon" for=__drawer> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg> </label> <div class=md-header__title data-md-component=header-title> <div class=md-header__ellipsis> <div class=md-header__topic> <span class=md-ellipsis> Tiras y matrices de LEDs </span> </div> <div class=md-header__topic data-md-component=header-topic> <span class=md-ellipsis> Matrices de 16x16 </span> </div> </div> </div> <label class="md-header__button md-icon" for=__search> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg> </label> <div class=md-search data-md-component=search role=dialog> <label class=md-search__overlay for=__search></label> <div class=md-search__inner role=search> <form class=md-search__form name=search> <input type=text class=md-search__input name=query aria-label=Búsqueda placeholder=Búsqueda autocapitalize=off autocorrect=off autocomplete=off spellcheck=false data-md-component=search-query required> <label class="md-search__icon md-icon" for=__search> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg> </label> <nav class=md-search__options aria-label=Search> <button type=reset class="md-search__icon md-icon" title=Limpiar aria-label=Limpiar tabindex=-1> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg> </button> </nav> </form> <div class=md-search__output> <div class=md-search__scrollwrap data-md-scrollfix> <div class=md-search-result data-md-component=search-result> <div class=md-search-result__meta> Inicializando búsqueda </div> <ol class=md-search-result__list></ol> </div> </div> </div> </div> </div> <div class=md-header__source> <a href=https://github.com/fgcoca/tiras-y-matrices-de-LEDs title="Ir al repositorio" class=md-source data-md-component=source> <div class="md-source__icon md-icon"> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 448 512"><!-- Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg> </div> <div class=md-source__repository> fgcoca/tiras-y-matrices-de-LEDs </div> </a> </div> </nav> </header> <div class=md-container data-md-component=container> <main class=md-main data-md-component=main> <div class="md-main__inner md-grid"> <div class="md-sidebar md-sidebar--primary" data-md-component=sidebar data-md-type=navigation> <div class=md-sidebar__scrollwrap> <div class=md-sidebar__inner> <nav class="md-nav md-nav--primary" aria-label=Navegación data-md-level=0> <label class=md-nav__title for=__drawer> <a href=../.. title="Tiras y matrices de LEDs" class="md-nav__button md-logo" aria-label="Tiras y matrices de LEDs" data-md-component=logo> <img src=../../img/favicon.png alt=logo> </a> Tiras y matrices de LEDs </label> <div class=md-nav__source> <a href=https://github.com/fgcoca/tiras-y-matrices-de-LEDs title="Ir al repositorio" class=md-source data-md-component=source> <div class="md-source__icon md-icon"> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 448 512"><!-- Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg> </div> <div class=md-source__repository> fgcoca/tiras-y-matrices-de-LEDs </div> </a> </div> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../.. class=md-nav__link> Introducción </a> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_2 type=checkbox id=__nav_2> <label class=md-nav__link for=__nav_2> Software <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label=Software data-md-level=1> <label class=md-nav__title for=__nav_2> <span class="md-nav__icon md-icon"></span> Software </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../softAB/ class=md-nav__link> ArduinoBlocks </a> </li> <li class=md-nav__item> <a href=../softIDE/ class=md-nav__link> IDE 2 </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=../alimentar/ class=md-nav__link> Alimentación </a> </li> <li class="md-nav__item md-nav__item--active md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_4 type=checkbox id=__nav_4 checked> <label class=md-nav__link for=__nav_4> Programación <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label=Programación data-md-level=1> <label class=md-nav__title for=__nav_4> <span class="md-nav__icon md-icon"></span> Programación </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../matriz8x32/ class=md-nav__link> Matrices de 8x32 </a> </li> <li class="md-nav__item md-nav__item--active"> <input class="md-nav__toggle md-toggle" data-md-toggle=toc type=checkbox id=__toc> <label class="md-nav__link md-nav__link--active" for=__toc> Matrices de 16x16 <span class="md-nav__icon md-icon"></span> </label> <a href=./ class="md-nav__link md-nav__link--active"> Matrices de 16x16 </a> <nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos"> <label class=md-nav__title for=__toc> <span class="md-nav__icon md-icon"></span> Tabla de contenidos </label> <ul class=md-nav__list data-md-component=toc data-md-scrollfix> <li class=md-nav__item> <a href=#descripcion class=md-nav__link> Descripción </a> </li> <li class=md-nav__item> <a href=#libreria-fastled class=md-nav__link> Librería FastLED </a> <nav class=md-nav aria-label="Librería FastLED"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#configuracion-de-los-leds class=md-nav__link> Configuración de los LEDs </a> </li> <li class=md-nav__item> <a href=#encender-y-apagar-un-led class=md-nav__link> Encender y apagar un LED </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#ejemplos class=md-nav__link> Ejemplos </a> <nav class=md-nav aria-label=Ejemplos> <ul class=md-nav__list> <li class=md-nav__item> <a href=#encender-y-apagar-todos-los-pixeles class=md-nav__link> Encender y apagar todos los pixeles </a> </li> <li class=md-nav__item> <a href=#libreria-hsv class=md-nav__link> Libreria HSV </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#ejemplos-con-esp32-steamakers-tdr-steam class=md-nav__link> Ejemplos con ESP32 STEAMakers + TdR STEAM </a> <nav class=md-nav aria-label="Ejemplos con ESP32 STEAMakers + TdR STEAM"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#blink-con-led-rojo class=md-nav__link> Blink con LED rojo </a> </li> <li class=md-nav__item> <a href=#encender-pixeles-con-potenciometro class=md-nav__link> Encender pixeles con potenciómetro </a> </li> <li class=md-nav__item> <a href=#colores-aleatorios-en-el-panel class=md-nav__link> Colores aleatorios en el panel </a> </li> <li class=md-nav__item> <a href=#paleta-de-colores-en-el-panel class=md-nav__link> Paleta de Colores en el panel </a> </li> <li class=md-nav__item> <a href=#pacman class=md-nav__link> Pacman </a> </li> <li class=md-nav__item> <a href=#remolino-de-colores class=md-nav__link> Remolino de colores </a> </li> <li class=md-nav__item> <a href=#fantasma-pacman-en-rojo class=md-nav__link> Fantasma PACMAN en rojo </a> </li> </ul> </nav> </li> </ul> </nav> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_5 type=checkbox id=__nav_5> <label class=md-nav__link for=__nav_5> El juego de la serpiente <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label="El juego de la serpiente" data-md-level=1> <label class=md-nav__title for=__nav_5> <span class="md-nav__icon md-icon"></span> El juego de la serpiente </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../3d/ class=md-nav__link> 3D </a> </li> <li class=md-nav__item> <a href=../serpiente/ class=md-nav__link> Programa </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=__nav_6 type=checkbox id=__nav_6> <label class=md-nav__link for=__nav_6> Miscelanea <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label=Miscelanea data-md-level=1> <label class=md-nav__title for=__nav_6> <span class="md-nav__icon md-icon"></span> Miscelanea </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../Miscelanea/about/ class=md-nav__link> Autor </a> </li> <li class=md-nav__item> <a href=../../Miscelanea/lic/ class=md-nav__link> Licencias </a> </li> <li class=md-nav__item> <a href=../../Miscelanea/webgrafia/ class=md-nav__link> Webgrafia/Bibliografía </a> </li> <li class=md-nav__item> <a href=../../Miscelanea/soft/ class=md-nav__link> Software utilizado </a> </li> </ul> </nav> </li> </ul> </nav> </div> </div> </div> <div class="md-sidebar md-sidebar--secondary" data-md-component=sidebar data-md-type=toc> <div class=md-sidebar__scrollwrap> <div class=md-sidebar__inner> <nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos"> <label class=md-nav__title for=__toc> <span class="md-nav__icon md-icon"></span> Tabla de contenidos </label> <ul class=md-nav__list data-md-component=toc data-md-scrollfix> <li class=md-nav__item> <a href=#descripcion class=md-nav__link> Descripción </a> </li> <li class=md-nav__item> <a href=#libreria-fastled class=md-nav__link> Librería FastLED </a> <nav class=md-nav aria-label="Librería FastLED"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#configuracion-de-los-leds class=md-nav__link> Configuración de los LEDs </a> </li> <li class=md-nav__item> <a href=#encender-y-apagar-un-led class=md-nav__link> Encender y apagar un LED </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#ejemplos class=md-nav__link> Ejemplos </a> <nav class=md-nav aria-label=Ejemplos> <ul class=md-nav__list> <li class=md-nav__item> <a href=#encender-y-apagar-todos-los-pixeles class=md-nav__link> Encender y apagar todos los pixeles </a> </li> <li class=md-nav__item> <a href=#libreria-hsv class=md-nav__link> Libreria HSV </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#ejemplos-con-esp32-steamakers-tdr-steam class=md-nav__link> Ejemplos con ESP32 STEAMakers + TdR STEAM </a> <nav class=md-nav aria-label="Ejemplos con ESP32 STEAMakers + TdR STEAM"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#blink-con-led-rojo class=md-nav__link> Blink con LED rojo </a> </li> <li class=md-nav__item> <a href=#encender-pixeles-con-potenciometro class=md-nav__link> Encender pixeles con potenciómetro </a> </li> <li class=md-nav__item> <a href=#colores-aleatorios-en-el-panel class=md-nav__link> Colores aleatorios en el panel </a> </li> <li class=md-nav__item> <a href=#paleta-de-colores-en-el-panel class=md-nav__link> Paleta de Colores en el panel </a> </li> <li class=md-nav__item> <a href=#pacman class=md-nav__link> Pacman </a> </li> <li class=md-nav__item> <a href=#remolino-de-colores class=md-nav__link> Remolino de colores </a> </li> <li class=md-nav__item> <a href=#fantasma-pacman-en-rojo class=md-nav__link> Fantasma PACMAN en rojo </a> </li> </ul> </nav> </li> </ul> </nav> </div> </div> </div> <div class=md-content data-md-component=content> <article class="md-content__inner md-typeset"> <h1>Matrices de 16x16</h1> <p>16x16 led matrix project# <font color=#8B008B>Matriz o panel de 16x16</font></p> <h2 id=descripcion><font color=#007575><strong>Descripción</strong></font><a class=headerlink href=#descripcion title="Permanent link">&para;</a></h2> <p>En realidad se trata de tiras de 256 LEDs dispuestos en forma de panel o matriz que tienen el aspecto de la figura siguiente:</p> <p><center></p> <p><img alt="Aspecto de una matriz de 16x16" src=../../img/matriz16x16/aspecto.png></p> <p><em>Aspecto de una matriz de 16x16</em></p> <p></center></p> <p>Podemos decir que todo lo dicho para la matriz de 8x32 es válido para esta salvo la disposición que en lugar de ser rectangular es cuadrada. Con las adaptaciones adecuadas incluso los ejemplos siguen la misma filosofía si utilizamos las librerías citadas en la sección <a href=../matriz8x32/ >Matrices de 8x32</a>.</p> <h2 id=libreria-fastled><font color=#007575><strong>Librería FastLED</strong></font><a class=headerlink href=#libreria-fastled title="Permanent link">&para;</a></h2> <p>Es una alternativa a la librería <em>Adafruit_NeoPixel</em>, que proporciona características más avanzadas y funciona con otros tipos de LEDs como DotStars, que resultan tan interesantes que merecen ser tratados de forma separada. FastLED funciona de manera completamente diferente; no es un reemplazo directo para Adafruit_NeoPixel, y los programas que tengamos requerirán ser reescritos.</p> <p>La librería es compatible con este <a href=https://github.com/FastLED/FastLED/wiki/Chipset-reference>listado de chip</a> y se ejecuta en una amplia gama de <a href=https://github.com/FastLED/FastLED/wiki/Overview#wiki-platforms>plataformas</a> de Arduino y compatibles, incluidos los basados en AVR y ARM.</p> <p>La librería presenta las siguientes características:</p> <ul> <li>Soporte para <a href="https://es.wikipedia.org/wiki/Modelo_de_color_HSV#:~:text=Se%20representa%20como%20un%20grado,amarillo%20y%20120%20es%20verde.">modelo de color HSV</a> asi como el clásico RGB. En <a href=https://github.com/FastLED/FastLED/wiki/Pixel-reference#wiki-chsv>Setting HSV Colors</a> tenemos detalles del tema en inglés.</li> <li>La configuración del brillo permite controlar, ademas del brillo, el uso de energia y por lo tanto la duración de una posible batería, si se utiliza.</li> <li>Funciones matemáticas y de acceso a memoria hasta 10 veces mas rápidas que las clásicas de Arduino.</li> </ul> <p>Para comenzar basta con <a href=http://fastled.io/releases>descargar la librería</a> y comenzar a probar código básico. Lo que vamos a ver a continuación es la información básica sobre el uso de la librería.</p> <h3 id=configuracion-de-los-leds><font color=#AA0000>Configuración de los LEDs</font><a class=headerlink href=#configuracion-de-los-leds title="Permanent link">&para;</a></h3> <p>Cuando vamos a escribir código necesitamos saber que LEDs estamos utilizando, cuantos hay y a que pin de salida de datos los vamos a conectar. Para los siguientes ejemplos trabajamos con una tira de 256 LEDs dispuestos en forma de matriz de 16x16 y los conectaremos al pin digital 3.</p> <p>Entra dentro de las buenas prácticas en programación hacer el código lo mas fácil de leer que sea posible y que cuando necesitemos realizar cambios en las condiciones lo tengamos que hacer solamente en un lugar. Como ejemplo a continuación vemos dos formas de escribir una línea de código</p> <div class=highlight><pre><span></span><code>FastLED.addLeds&lt;4, 3&gt;(leds, 256); // Forma 1
+FastLED.addLeds&lt;NEOPIXEL, DATA_PIN&gt;(leds, NUM_LEDS); // Forma  2
+</code></pre></div> <p>La Forma 1 utiliza números simples para definir las cosas mientras que la Forma 2 utiliza nombres, lo que hace al código mas legible y si, por ejemplo queremos cambiar el número de LEDs basta con hacerlo en la definición de NUM_LEDS.</p> <p>Dicho esto nuestras primeras líneas de código van a ser:</p> <div class=highlight><pre><span></span><code>#include &lt;FastLED.h&gt; // Incluimos la librería
+#define NUM_LEDS 256 // Definimos el número de LEDs
+#define DATA_PIN 3 // Definimos el pin de datos
+CRGB leds[NUM_LEDS]; // Configura el bloque de memoria (matriz) para almacenar y manipular datos del LED
+</code></pre></div> <p>El siguiente paso es configurar nuestros LEDs en el bucle inicializar o setup. Esto se hace como vemos a continuación:</p> <div class=highlight><pre><span></span><code>void setup() { 
+    FastLED.addLeds&lt;NEOPIXEL, DATA_PIN&gt;(leds, NUM_LEDS);
+}
+</code></pre></div> <p>La línea de configuración indica que hay una tira de NEOPIXEL conectada al pin 3, que esos LEDs utilizaran la matriz <em>leds</em> y en el número definido de 256.</p> <p>Si estamos utilizando chips de cuatro cables debemos cambiar esta línea de configuración para lo que consultaremos la documentación original indicada en los enlaces.</p> <h3 id=encender-y-apagar-un-led><font color=#AA0000>Encender y apagar un LED</font><a class=headerlink href=#encender-y-apagar-un-led title="Permanent link">&para;</a></h3> <p>El proceso de establecer un color para los LEDs se realiza estableciendo los valores de la matriz <em>leds</em> y posteriormente indicando a la biblioteca que muestre los datos. Por ejemplo, el siguiente código enciende en verde el primer LED.</p> <div class=highlight><pre><span></span><code>void loop() {
+    // Enciende el primer LED en verde
+    leds[0] = CRGB::Green; 
+    FastLED.show(); 
+    delay(30); 
+}
+</code></pre></div> <p>El color es un tipo de dato enumerado (una lista de valores) que podemos consultar <a href=http://fastled.io/docs/3.1/struct_c_r_g_b.html>aquí</a> y que, como vemos en la animación de la figura siguiente, se mostrarán como opciones disponibles cuando tecleamos el color en la línea de código.</p> <p><center></p> <p><img alt="Opciones de colores cuando tecleamos" src=../../img/matriz16x16/enum_color.gif></p> <p><em>Opciones de colores cuando tecleamos</em></p> <p></center></p> <p>Apagar el LED consiste en ponerlo en color negro de forma similar a la vista anteriormente.</p> <p>El código del programa completo <a href=../../programas/blynk.zip>Blynk</a> es el siguiente:</p> <div class=highlight><pre><span></span><code>#include &lt;FastLED.h&gt;
+#define NUM_LEDS 256
+#define DATA_PIN 3#include &quot;FastLED.h&quot;
+CRGB leds[60];
+void setup() { FastLED.addLeds&lt;NEOPIXEL, 6&gt;(leds, 60); }
+void loop() { 
+  static uint8_t hue = 0;
+  FastLED.showColor(CHSV(hue++, 255, 255)); 
+  delay(10);
+}
+CRGB leds[NUM_LEDS];
+
+void setup() {
+  FastLED.addLeds&lt;NEOPIXEL, DATA_PIN&gt;(leds, NUM_LEDS);
+}
+
+void loop() {
+  // Encender el primer LED en verde
+  leds[0] = CRGB::Green; 
+  FastLED.show(); 
+  delay(1000);
+  // Apagar el primer LED
+  leds[0] = CRGB::Black;
+  FastLED.show();
+  delay(1000);
+}
+</code></pre></div> <h2 id=ejemplos><font color=#007575><strong>Ejemplos</strong></font><a class=headerlink href=#ejemplos title="Permanent link">&para;</a></h2> <p>A continuación vamos a ver diferentes ejemplos comentando en cada uno el concepto relativo a la librería que se introduce y, como no, que hace el programa.</p> <h3 id=encender-y-apagar-todos-los-pixeles><font color=#AA0000>Encender y apagar todos los pixeles</font><a class=headerlink href=#encender-y-apagar-todos-los-pixeles title="Permanent link">&para;</a></h3> <p>Simplemente hacemos un bucle para recorrer la tira completa y ver como están conectados los LEDs. El programa <a href=../../programas/ON_OFF_todos.zip>ON_OFF_todos</a> tiene el siguiente código:</p> <div class=highlight><pre><span></span><code>#include &lt;FastLED.h&gt;
+#define NUM_LEDS 256
+#define DATA_PIN 3
+CRGB leds[NUM_LEDS];
+
+void setup() {
+  FastLED.addLeds&lt;NEOPIXEL, DATA_PIN&gt;(leds, NUM_LEDS);
+}
+
+void loop() {
+  for(int pixel=0; pixel&lt;NUM_LEDS; pixel++){
+    leds[pixel] = CRGB::Blue;
+    FastLED.show();
+    // Apagar el LED encendido para ver la siguiente iteracion del bucle
+    leds[pixel] = CRGB::Black;
+    delay(50);
+  }
+}
+</code></pre></div> <h3 id=libreria-hsv><font color=#AA0000>Libreria HSV</font><a class=headerlink href=#libreria-hsv title="Permanent link">&para;</a></h3> <p>La librería proporciona una conversión rápida de HSV a RGB ajustada a la percepción humana del color. Al definir colores con RGB, estamos mezclando los valores de color rojo, verde y azul. Cuando usamos HSV estamos definiendo el tono del color (es decir, dónde está en la rueda de colores), qué tan saturado está y qué tan brillante es. Por ejemplo, el programa <a href=../../programas/HSV_color.zip>HSV_color</a> recorrerá los colores del arcoíris.</p> <div class=highlight><pre><span></span><code>#include &lt;FastLED.h&gt;
+#define NUM_LEDS 256
+#define DATA_PIN 3
+#define BRILLO 15 
+CRGB leds[NUM_LEDS];
+
+void setup() {
+  FastLED.addLeds&lt;NEOPIXEL, DATA_PIN&gt;(leds, NUM_LEDS);
+  FastLED.setBrightness(BRILLO);
+}
+
+void loop() {
+  static uint8_t matiz = 0;
+  FastLED.showColor(CHSV(matiz++, 255, 255)); 
+  delay(10);
+}
+</code></pre></div> <h2 id=ejemplos-con-esp32-steamakers-tdr-steam><font color=#007575><strong>Ejemplos con ESP32 STEAMakers + TdR STEAM</strong></font><a class=headerlink href=#ejemplos-con-esp32-steamakers-tdr-steam title="Permanent link">&para;</a></h2> <p>En este apartado vamos a crear algún ejemplo utilizando este conjunto de placas de las que podemos encontrar información en <a href=https://fgcoca.github.io/ESP32-STEAMakers/ >Notas sobre ESP32 STEAMakers</a>.</p> <p>También vamos a ver los ejemplos disponibles en la página <a href=https://www.instructables.com/16x16-RGB-LED-Panel-Arduino-Projects/ >16x16 RGB LED Panel Arduino Projects</a> by coberfranc en Autodesk Instructables.</p> <p>Siempre vamos a partir de la base de que en el gestor de placas ya hemos instalado el <a href=https://github.com/espressif/arduino-esp32>Arduino Core for ESP32</a> de <a href=https://github.com/espressif>Espressif Systems</a> tal y como vemos en la figura siguiente:</p> <p><center></p> <p><img alt="esp32 instalado" src=../../img/matriz16x16/esp32_ins.png></p> <p><em>esp32 instalado</em></p> <p></center></p> <p>En la figura podemos también ver la selección de placa y de puerto realizada.</p> <h3 id=blink-con-led-rojo><font color=#AA0000>Blink con LED rojo</font><a class=headerlink href=#blink-con-led-rojo title="Permanent link">&para;</a></h3> <p>Vamos a comenzar por este sencillo ejemplo que nos servirá para describir el entorno en el que vamos a programar. Analizando la documentación vemos que el LED rojo está conectado al pin D12 que se corresponde con el pin IO19 o pin 19 de propósito general de entrada salida en la ESP32.</p> <p>El código del programa lo tenemos a continuación:</p> <div class=highlight><pre><span></span><code>void setup() {
+  pinMode(19, OUTPUT);
+}
+
+void loop() {
+    digitalWrite(19,HIGH);
+    delay(1000);
+    digitalWrite(19, LOW);
+    delay(1000);
+}
+</code></pre></div> <h3 id=encender-pixeles-con-potenciometro><font color=#AA0000>Encender pixeles con potenciómetro</font><a class=headerlink href=#encender-pixeles-con-potenciometro title="Permanent link">&para;</a></h3> <p>Vamos a tener el potenciómetro conectado al pin A0 de la TdR STEAM, que en la ESP32 es el pin IO02, y nos entregará un valor de 0 a 4095 (DAC de 12 bits). Utilizando la función de mapeo convertimos ese rango de valores en un nuevo rango que será el número de LEDs. El pin que vamos a utilizar como salida de datos es el asociado al conector D3, que en la ESP32 es el pin IO25. El programa <a href=../../programas/NLEDs_pot.zip>NLEDs_pot</a> tiene el código siguiente:</p> <div class=highlight><pre><span></span><code>#include &lt;FastLED.h&gt;
+#define NUM_LEDS_M 256
+#define DATA_PIN 25
+#define BRILLO 15 
+CRGB leds[NUM_LEDS_M];
+
+void setup() {
+  pinMode(DATA_PIN, OUTPUT);
+  FastLED.addLeds&lt;NEOPIXEL, DATA_PIN&gt;(leds, NUM_LEDS_M);
+  FastLED.setBrightness(BRILLO);
+}
+
+void loop() {
+int num = analogRead(2);
+  int pixelesON = map(num, 0, 4095, 0, NUM_LEDS_M);
+  FastLED.clear(); // Limpiamos la matriz
+  for(int led = 0; led &lt; pixelesON; led++) { 
+    leds[led] = CRGB::Purple; 
+    }
+  FastLED.show();
+}
+</code></pre></div> <p>En el siguiente video vemos el funcionamiento del ejemplo:</p> <p><center></p> <iframe width=560 height=315 src=https://www.youtube.com/embed/BAM5cENR7jA title="YouTube video player" frameborder=0 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> <p></center></p> <h3 id=colores-aleatorios-en-el-panel><font color=#AA0000>Colores aleatorios en el panel</font><a class=headerlink href=#colores-aleatorios-en-el-panel title="Permanent link">&para;</a></h3> <p>Se trata del ejemplo <a href=https://content.instructables.com/F6A/P4G0/K5ME7GZ9/F6AP4G0K5ME7GZ9.ino>16random.ino</a> en el que se van encendiendo de forma y en color aleatorio diferentes pixeles. Este es el código adaptado a ESP32 STEAMaker + TdR STEAM:</p> <div class=highlight><pre><span></span><code>#include &quot;FastLED.h&quot;
+#define NUM_LEDS 256
+#define DATA_PIN 25
+CRGB leds[NUM_LEDS];
+
+void setup() {
+  delay(2000);
+  FastLED.addLeds&lt;WS2812B, DATA_PIN, RGB&gt;(leds, NUM_LEDS);
+  FastLED.setBrightness(10); //Numero de 0 a 255
+  FastLED.clear();
+}
+
+int random_integer;
+int random_integer2;
+void loop() {
+    for(int i = 0; i &lt;center 5; i++){
+       for(int j = 0; j &lt;center 256; j++){
+            random_integer = (rand()%256)+1;
+            random_integer2 = (rand()%256)+1;            
+            leds[random_integer].setHue(random_integer2);
+            FastLED.show();
+            delay(100);
+       } 
+       for(int k = 256; k &gt; 0; k--){
+            leds[k] = CRGB::Black;
+       }
+    }
+}
+</code></pre></div> <p>El video siguiente nos muestra el funcionamiento del ejemplo:</p> <p></center></p> <iframe width=560 height=315 src=https://www.youtube.com/embed/tTY8ZMNAncY title="YouTube video player" frameborder=0 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> <p></center></p> <h3 id=paleta-de-colores-en-el-panel><font color=#AA0000>Paleta de Colores en el panel</font><a class=headerlink href=#paleta-de-colores-en-el-panel title="Permanent link">&para;</a></h3> <p>Se trata del ejemplo <a href=https://content.instructables.com/FYD/4KG5/K5ME7GZB/FYD4KG5K5ME7GZB.ino>16counter.ino</a> en el que en un primer bucle que iteraciona tres veces se encienden todos los LEDs de uno en uno cambiando de color hasta que están todos encendidos que es cuando comienzan a apagarse de forma inversa. En otro bucle similar se encienden todos los LEDs pero de uno en uno también cambiando de color y comenzando las tres veces desde el principio. Este es el código adaptado a ESP32 STEAMaker + TdR STEAM:</p> <div class=highlight><pre><span></span><code>#include &quot;FastLED.h&quot;
+#define NUM_LEDS 256
+#define DATA_PIN 25
+CRGB leds[NUM_LEDS];
+
+void setup() {
+  delay(2000);
+  FastLED.addLeds&lt;WS2812B, DATA_PIN, RGB&gt;(leds, NUM_LEDS);
+  FastLED.setBrightness(10); //Number 0-255
+  FastLED.clear();
+}
+
+int colorcalc;
+
+void loop() {
+    colorcalc = 0;    
+    for(int i = 0; i &lt; 3; i++){
+       for(int j = 0; j &lt; 256; j++){
+            colorcalc = colorcalc + 1;
+            leds[j].setHue(colorcalc);luces
+            FastLED.show();
+            delay(20);
+       } 
+       for(int j = 256; j &gt; 0; j--){
+          leds[j] = CRGB::Black;
+          FastLED.show();
+          delay(20);luces
+       }
+    }
+    for(int i = 0; i &lt; 3; i++){
+       for(int j = 0; j &lt; 256; j++){
+            colorcalc = colorcalc + 1;
+            leds[j].setHue(colorcalc);
+            FastLED.show();
+            delay(20);
+            leds[j] = CRGB::Black;
+            FastLED.show();
+        } 
+    }luces
+}
+</code></pre></div> <p>El video siguiente nos muestra el funcionamiento del ejemplo:</p> <p></center></p> <iframe width=560 height=315 src=https://www.youtube.com/embed/OLOSoVND4sg title="YouTube video player" frameborder=0 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> <p></center></p> <h3 id=pacman><font color=#AA0000>Pacman</font><a class=headerlink href=#pacman title="Permanent link">&para;</a></h3> <p>Se trata del ejemplo <a href=https://content.instructables.com/F7O/ZECF/K5ME7GZA/F7OZECFK5ME7GZA.ino>16pacman.ino</a> en el que se verá el clásico Pacman amarillo animado. El diseño se ayuda de una tabla que actúa a modo de plantilla. En la tabla se hace coincidir cada número de celda con su número de pixel correspondiente según la relación de la figura siguiente:</p> <p><center></p> <p><img alt="Plantilla 16x16 para diseño" src=../../img/matriz16x16/fantasma.png></p> <p><em>Plantilla 16x16 para diseño</em></p> <p></center>luces</p> <p>El color negro de fondo representa el apagado de los LEDs.</p> <p>En la figura siguiente vemos el diseño del cuerpo del Pacman</p> <p><center></p> <p><img alt="Cuerpo del Pacman" src=../../img/matriz16x16/cuerpoP.png></p> <p><em>Cuerpo del Pacman</em></p> <p></center></p> <p>En la figura siguiente vemos el diseño de la boca medio abierta.</p> <p><center></p> <p><img alt="Boca medio abierta" src=../../img/matriz16x16/boca_medioP.png></p> <p><em>Boca medio abierta</em></p> <p></center></p> <p>En la figura siguiente vemos el diseño de la boca abierta.</p> <p><center></p> <p><img alt="Boca abierta" src=../../img/matriz16x16/boca_abiertaP.png></p> <p><em>Boca abierta</em></p> <p></center></p> <p>Este es el código adaptado a ESP32 STEAMaker + TdR STEAM:</p> <div class=highlight><pre><span></span><code>#include &quot;FastLED.h&quot;
+#define NUM_LEDS 256luces
+#define DATA_PIN 25
+CRGB leds[NUM_LEDS];
+
+void setup() {
+  delay(2000);
+  FastLED.addLeds&lt;WS2812B, DATA_PIN, RGB&gt;(leds, NUM_LEDS);
+  FastLED.setBrightness(10);
+  FastLED.clear();
+}
+int eyes_seconds = 2;luces
+int reg_ghost_seconds = 10;
+int feet_delay = 220;
+int eye_loop = (eyes_seconds*1000)/feet_delay; 
+int reg_ghost_loop = reg_ghost_seconds/eyes_seconds; 
+int sad_ghost_loop = 50;
+int sad_ghost_blink_loop = 10;
+
+int body[] = {
+5,6,7,8,9,10,19,20,21,22,
+23,24,25,26,27,28,34,35,36,37,
+38,39,40,41,42,43,44,45,49,50,
+51,52,53,54,55,56,57,58,59,60,
+61,62,65,66,67,68,69,70,71,72,
+73,74,75,76,77,78,80,81,82,83,
+84,85,86,87,88,89,90,91,92,93,
+94,95,96,97,98,99,100,101,102,103,
+104,105,106,107,108,109,110,111,112,113,
+114,115,116,117,118,119,120,121,122,123,
+124,125,126,127,128,129,130,131,132,133,
+134,135,136,137,138,139,140,141,142,143,
+144,145,146,147,148,149,150,151,152,153,
+154,155,156,157,158,159,160,161,162,163,
+164,165,166,167,168,169,170,171,172,173,
+174,175,177,178,179,180,181,182,183,184,
+185,186,187,188,189,190,193,194,195,196,
+197,198,199,200,201,202,203,204,205,206,
+210,211,212,213,214,215,216,217,218,219,
+220,221,227,228,229,230,231,232,233,234,
+235,236,245,246,247,248,249,250
+};
+
+int mouth_half_open[] = {
+5,6,7,8,9,10,19,20,21,22,
+23,24,25,26,27,28,35,36,37,38,
+39,40,41,42,43,44,52,53,54,55,
+56,57,58,59,68,69,70,71,72,73,
+74,75,85,86,87,88,89,90,101,102,
+103,104,105,106,118,119,120,121,134,135,
+136,137,151,152
+};
+
+int mouth_open[] = {luces
+5,6,7,8,9,10,19,20,21,22,
+23,24,25,26,27,28,34,35,36,37,
+38,39,40,41,42,43,44,45,49,50,
+51,52,53,54,55,56,57,58,59,60,
+61,62,65,66,67,68,69,70,71,72,
+73,74,75,76,77,78,82,83,84,85,
+86,87,88,89,90,91,92,93,99,100,
+101,102,103,104,105,106,107,108,116,117,
+118,119,120,121,122,123,133,134,135,136,
+137,138,150,151,152,153luces
+};
+
+int filler[] = {
+138,116,117,107,108,84,83,82,78,77,
+76,49,50,51,45,153,133,122,123,100,
+99,91,92,93,67,66,65,60,61,62,
+34
+};
+
+void loop() {
+    for(int i = 0; i &lt; reg_ghost_loop; i++){
+        for(int i = 0; i &lt; eye_loop; i++){
+            //CUERPO
+            for (int i = 0; i &lt; 208; i++){  
+                  leds[body[i]] = CRGB::Yellow;
+            }
+            FastLED.show();
+            delay(200);
+            //BOCA MEDIO ABIERTA
+            for (int i = 0; i &lt; 64; i++){      
+                  leds[mouth_half_open[i]] = CRGB::Black;
+            }
+            FastLED.show();
+            delay(200);
+            //BOCA ABIERTA
+            for (int i = 0; i &lt; 96; i++){      
+                  leds[mouth_open[i]] = CRGB::Black;
+            }
+            FastLED.show();
+            delay(200);
+            //CUERPO
+            for (int i = 0; i &lt; 31; i++){      
+                  leds[filler[i]] = CRGB::Yellow;
+            }
+            FastLED.show();
+            delay(200);
+         } 
+
+    } 
+}
+</code></pre></div> <p>El video siguiente nos muestra el funcionamiento del ejemplo:</p> <p><center></p> <iframe width=560 height=315 src=https://www.youtube.com/embed/YVKq5vzJKpk title="YouTube video player" frameborder=0 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> <p></center></p> <h3 id=remolino-de-colores><font color=#AA0000>Remolino de colores</font><a class=headerlink href=#remolino-de-colores title="Permanent link">&para;</a></h3> <p>Se trata del ejemplo <a href=https://content.instructables.com/FH3/96OX/K5ME7GZC/FH396OXK5ME7GZC.ino>16colormatrix.ino</a> en el que se aplican funciones auxiliares para una matriz XY bidimensional.</p> <ul> <li>La función <strong><em>XY(x,y)</em></strong> toma las coordenadas 'x e y' y devuelve el número de índice LED, para usarla debemos invocarla así:</li> </ul> <div class=highlight><pre><span></span><code>leds[ XY(x,y) ] == CRGB::Red;
+</code></pre></div> <p>Esta función no realiza ninguna comprobación de errores.</p> <ul> <li>La función <strong><em>XYsafe(x,y)</em></strong> toma las coordenadas 'x e y' y devuelve el número de índice LED, para usarla debemos invocarla así:</li> </ul> <div class=highlight><pre><span></span><code>leds[ XYsafe(x,y) ] == CRGB::Red;
+</code></pre></div> <p>La verificación de errores se realiza en los rangos de x e y, y se devuelve un índice de "-1".</p> <p>También se define un parámetro para diferenciar la forma en que están conectados los LEDs que en los comentarios del ejemplo original indican lo siguiente: "<em>Vocabulario adicional: cualquier cosa que vaya en una dirección en una fila, y luego hacia atrás en la fila siguiente, y así sucesivamente, se llama "<a href=https://es.wikipedia.org/wiki/Bustrofedon>Bustrofedon</a>", que significa "como ara el buey".</em>"</p> <p>Esta función devolverá el 'número de índice de led' para un conjunto dado de coordenadas X e Y en la matriz si lo indicamos de manera correcta, es decir, la función no controla LOS LÍMITES DE COORDENADAS, así que no debemos pasarle valores falsos.</p> <p>Este es el código adaptado a ESP32 STEAMaker + TdR STEAM:</p> <div class=highlight><pre><span></span><code>#include &lt;FastLED.h&gt;
+#define LED_PIN  25
+#define COLOR_ORDER GRB
+#define CHIPSET WS2812B
+#define BRIGHTNESS 10
+
+// Parametros de anchura y altura
+const uint8_t kMatrixWidth = 16;
+const uint8_t kMatrixHeight = 16;
+
+// Parametro para diferenciar la forma de conexionado de los LEDs:
+// La ponemos a false si los pixeles están dispuestos como una tira
+// la ponemos a true si están dispuestos en zig-zag
+const bool kMatrixSerpentineLayout = true;
+
+uint16_t XY( uint8_t x, uint8_t y)
+{
+  uint16_t i;
+
+  if( kMatrixSerpentineLayout == false) {
+    i = (y * kMatrixWidth) + x;
+  }
+
+  if( kMatrixSerpentineLayout == true) {
+    if( y &amp; 0x01) {
+      // Odd rows run backwards
+      uint8_t reverseX = (kMatrixWidth - 1) - x;
+      i = (y * kMatrixWidth) + reverseX;
+    } else {
+      // Even rows run forwards
+      i = (y * kMatrixWidth) + x;
+    }
+  }
+
+  return i;
+}
+
+#define NUM_LEDS (kMatrixWidth * kMatrixHeight)
+CRGB leds_plus_safety_pixel[ NUM_LEDS + 1];
+CRGB* const leds( leds_plus_safety_pixel + 1);
+
+void setup() {
+  FastLED.addLeds&lt;CHIPSET, LED_PIN, COLOR_ORDER&gt;(leds, NUM_LEDS).setCorrection(TypicalSMD5050);
+  FastLED.setBrightness( BRIGHTNESS );
+}
+
+uint16_t XYsafe( uint8_t x, uint8_t y)
+{
+  if( x &gt;= kMatrixWidth) return -1;
+  if( y &gt;= kMatrixHeight) return -1;
+  return XY(x,y);
+}
+
+void loop()
+{
+    uint32_t ms = millis();
+    int32_t yHueDelta32 = ((int32_t)cos16( ms * (27/1) ) * (350 / kMatrixWidth));
+    int32_t xHueDelta32 = ((int32_t)cos16( ms * (39/1) ) * (310 / kMatrixHeight));
+    DrawOneFrame( ms / 65536, yHueDelta32 / 32768, xHueDelta32 / 32768);
+    if( ms &lt; 5000 ) {
+      FastLED.setBrightness( scale8( BRIGHTNESS, (ms * 256) / 5000));
+    } else {
+      FastLED.setBrightness(BRIGHTNESS);
+    }
+    FastLED.show();
+}
+
+void DrawOneFrame( byte startHue8, int8_t yHueDelta8, int8_t xHueDelta8)
+{
+  byte lineStartHue = startHue8;
+  for( byte y = 0; y &lt; kMatrixHeight; y++) {
+    lineStartHue += yHueDelta8;
+    byte pixelHue = lineStartHue;      
+    for( byte x = 0; x &lt; kMatrixWidth; x++) {
+      pixelHue += xHueDelta8;
+      leds[ XY(x, y)]  = CHSV( pixelHue, 255, 255);
+    }
+  }
+}
+</code></pre></div> <p>En el siguiente video vemos el funcionamiento del ejemplo:</p> <p><center></p> <iframe width=560 height=315 src=https://www.youtube.com/embed/SeRG5zHJamw title="YouTube video player" frameborder=0 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> <p></center></p> <h3 id=fantasma-pacman-en-rojo><font color=#AA0000>Fantasma PACMAN en rojo</font><a class=headerlink href=#fantasma-pacman-en-rojo title="Permanent link">&para;</a></h3> <p>Se trata del ejemplo <a href=https://content.instructables.com/F32/NPHD/K5ME7GZ8/F32NPHDK5ME7GZ8.ino>16red.ino</a> en el que se dibuja un fantasma de color rojo del juego PACMAN y se hace que mueva los ojos a izquierda y derecha y también que mueva los pies. El diseño se ayuda de una tabla que actúa a modo de plantilla. En la tabla se hace coincidir cada número de celda con su número de pixel correspondiente según la relación de la figura siguiente:</p> <p><center></p> <p><img alt="Plantilla 16x16 para diseño" src=../../img/matriz16x16/fantasma.png></p> <p><em>Plantilla 16x16 para diseño</em></p> <p></center></p> <p>El color negro de fondo representa el apagado de los LEDs.</p> <p>En la figura siguiente vemos el diseño del fantasma mirando a su izquierda.</p> <p><center></p> <p><img alt="Fantasma mirando a su izquierda" src=../../img/matriz16x16/fantasma_izda.png></p> <p><em>Fantasma mirando a su izquierda</em></p> <p></center></p> <p>En la figura siguiente vemos el diseño del fantasma mirando a su derecha.</p> <p><center></p> <p><img alt="Fantasma mirando a su derecha" src=../../img/matriz16x16/fantasma_dcha.png></p> <p><em>Fantasma mirando a su derecha</em></p> <p></center></p> <p>Este es el código adaptado a ESP32 STEAMaker + TdR STEAM:</p> <div class=highlight><pre><span></span><code>//FANTASMA PACMAN ANIMADO
+#include &quot;FastLED.h&quot;
+#define NUM_LEDS 256
+#define DATA_PIN 25
+CRGB leds[NUM_LEDS];
+void setup() {
+  delay(2000);
+  FastLED.addLeds&lt;WS2812B, DATA_PIN, RGB&gt;(leds, NUM_LEDS);
+  FastLED.setBrightness(10); //Numero entero entre 0 y 255
+  FastLED.clear();
+}
+int body[] = {
+0,1,2,3,4,5,6,7,21,22,
+23,24,25,26,27,28,29,30,31,32,
+33,34,35,36,37,38,39,40,41,42,
+43,51,52,53,54,55,56,57,58,59,
+60,61,62,63,64,65,66,67,68,69,
+70,71,72,73,74,75,76,77,81,82,
+83,84,85,86,87,88,89,90,91,92,
+93,94,95,96,97,98,99,100,101,102,
+103,104,105,106,107,108,109,110,113,114,
+115,116,117,118,119,120,121,122,123,124,
+125,126,127,128,129,130,131,132,133,134,
+135,136,137,138,139,140,141,142,145,146,
+147,148,149,150,151,152,153,154,155,156,
+157,158,159,160,161,162,163,164,165,166,
+167,168,169,170,171,172,173,174,178,179,
+180,181,182,183,184,185,186,187,188,189,
+190,191,192,193,194,195,196,197,198,199,
+200,201,202,203,204,212,213,214,215,216,
+217,218,219,220,221,222,223,224,225,226,
+227,228,229,230,231,232,233,234,248,249,
+250,251,252,253,254,255
+};
+
+int eyes_left[] = {
+54,55,56,
+70,71,72,73,74,
+85,86,87,88,89,
+103,104,105,
+150,151,152,
+166,167,168,169,170,
+181,182,183,184,185,
+199,200,201};
+
+int eyes_right[] = {
+71,72,73,
+85,86,87,88,89,
+102,103,104,105,106,
+118,119,120,
+169,168,167,
+181,182,183,184,185,
+202,201,200,199,198,
+214,215,216};
+
+int eyes_fill_body[] = {
+149,150,151,152,153,53,54,55,56,57};
+
+//eliminar pixeles alrededor de los pies
+int void_pixels_1[] = {8, 29, 30, 31, 83, 84, 85, 86, 138, 139, 140, 161};
+int void_pixels_2[] = {7, 31, 55, 56, 57, 112, 113, 114, 138, 162};
+
+int feet_fill_body[] = {
+224,222,129,128,63,33};
+
+int sad_ghost[] = {11, 26, 35, 48, 49, 53, 60, 64, 65, 80, 89, 104, 105, 109, 116, 120, 121, 134, 143, 158};
+
+int eyes_seconds = 2;
+int reg_ghost_seconds = 10;
+
+int feet_delay = 220; 
+int eye_loop = (eyes_seconds*1000)/feet_delay; // cuanto tiempo mira a izquierda y derecha 
+
+int reg_ghost_loop = reg_ghost_seconds/eyes_seconds; 
+int sad_ghost_loop = 50;
+int sad_ghost_blink_loop = 10;
+
+int pupil_right[] = {
+151,152,
+168,167,
+72,71,
+55,56};
+
+int pupil_left[] = {
+215,216,
+200,199,
+119,120,
+104,103};
+
+int feet_left[] = {
+222,224,223,192,
+129,126,128,127,
+33,63,32,31};
+
+int feet_right[] = {
+255,
+190,191,192,160,
+65,64,63,95,
+0};
+
+int feet_fill[] = {
+31,32,33,
+224,223,222,
+129,128,126,127};
+
+int feet_fill2[] = {
+31,32,33,
+224,223,222,
+129,128,126,127};
+
+int feet_clear[] = {
+254,225,222,193,190,161,158,129,126,97,94,65,62,33,30,1,
+255,224,223,192,191,160,159,128,127,96,95,64,63,32,31,0
+  };
+
+void loop() {
+    for(int i = 0; i &lt; reg_ghost_loop; i++){
+        for(int i = 0; i &lt; eye_loop; i++){
+            //Cuerpo
+            for (int i = 0; i &lt; 206; i++){ 
+                  leds[body[i]] = CRGB::Green;
+            }
+            //Ojos 
+            for (int i = 0; i &lt; 32; i++){
+                leds[eyes_left[i]] = CRGB::White;
+            }            
+            //Pupilas
+            for (int i = 0; i &lt; 8; i++){
+                leds[pupil_right[i]] = CRGB::DarkBlue;
+            }
+            FastLED.show();
+            //Pies
+            for(int i = 0; i &lt; 2; i++){
+              //configura pie 
+              for (int i = 0; i &lt; 12; i++){
+                  leds[feet_left[i]] = CRGB::Black;
+               }
+              FastLED.show();
+              delay(feet_delay);
+              //configura pie 
+              for (int i = 0; i &lt; 12; i++){
+                  leds[feet_right[i]] = CRGB::Black;
+              }
+              for (int i = 0; i &lt; 10; i++){
+                  leds[feet_fill[i]] = CRGB::Green;
+              }
+              FastLED.show();
+              delay(feet_delay);
+              for (int i = 0; i &lt; 32; i++){
+                  leds[feet_clear[i]] = CRGB::Green;
+              }
+            } //fin bucle pies
+            //Cambio ojos            
+            //Cuerpo
+            for (int i = 0; i &lt; 206; i++){  
+                  leds[body[i]] = CRGB::Green;
+            }
+            //Ojos 
+            for (int i = 0; i &lt; 32; i++){
+                leds[eyes_right[i]] = CRGB::White;
+            }            
+            //Pupilas
+            for (int i = 0; i &lt; 8; i++){
+                leds[pupil_left[i]] = CRGB::DarkBlue;
+            }
+            FastLED.show();
+            //Pie
+            for(int i = 0; i &lt; 2; i++){
+              //configura pie 
+              for (int i = 0; i &lt; 12; i++){
+                  leds[feet_left[i]] = CRGB::Black;
+               }
+              FastLED.show();
+              delay(feet_delay);
+              //configura pie  
+              for (int i = 0; i &lt; 12; i++){
+                  leds[feet_right[i]] = CRGB::Black;
+              }
+              for (int i = 0; i &lt; 10; i++){
+                  leds[feet_fill[i]] = CRGB::Green;
+              }
+              FastLED.show();
+              delay(feet_delay);
+              for (int i = 0; i &lt; 32; i++){
+                  leds[feet_clear[i]] = CRGB::Green;
+              }
+            } //fin bucle pies
+         }  //fin  bucle ojos
+    } //fin  bucle fantasma
+}
+</code></pre></div> <p>En el siguiente video vemos el funcionamiento del ejemplo:</p> <p><center></p> <iframe width=560 height=315 src=https://www.youtube.com/embed/TTJQEFsm1pY title="YouTube video player" frameborder=0 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> <p></center></p> </article> </div> </div> </main> <footer class=md-footer> <nav class="md-footer__inner md-grid" aria-label=Pie> <a href=../matriz8x32/ class="md-footer__link md-footer__link--prev" aria-label="Anterior: Matrices de 8x32" rel=prev> <div class="md-footer__button md-icon"> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg> </div> <div class=md-footer__title> <div class=md-ellipsis> <span class=md-footer__direction> Anterior </span> Matrices de 8x32 </div> </div> </a> <a href=../3d/ class="md-footer__link md-footer__link--next" aria-label="Siguiente: 3D" rel=next> <div class=md-footer__title> <div class=md-ellipsis> <span class=md-footer__direction> Siguiente </span> 3D </div> </div> <div class="md-footer__button md-icon"> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg> </div> </a> </nav> <div class="md-footer-meta md-typeset"> <div class="md-footer-meta__inner md-grid"> <div class=md-copyright> <div class=md-copyright__highlight> Copyright &copy; 2020 - 2035 Federico Coca </div> Made with <a href=https://squidfunk.github.io/mkdocs-material/ target=_blank rel=noopener> Material for MkDocs </a> </div> <div class=md-social> <a href=https://twitter.com/fgcoca target=_blank rel=noopener title="Twitter de Federico Coca" class=md-social__link> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 512 512"><!-- Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg> </a> <a href=https://github.com/fgcoca target=_blank rel=noopener title="Github de Federico Coca" class=md-social__link> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 496 512"><!-- Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg> </a> <a href="https://www.instagram.com/cocafederico/?hl=es" target=_blank rel=noopener title="Instagram de Federico Coca" class=md-social__link> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 448 512"><!-- Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg> </a> <a href=https://twitter.com/clubroboticagra target=_blank rel=noopener title="Twitter de Club Robótica Granada" class=md-social__link> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 512 512"><!-- Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg> </a> </div> </div> </div> </footer> </div> <div class=md-dialog data-md-component=dialog> <div class="md-dialog__inner md-typeset"></div> </div> <script id=__config type=application/json>{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}}</script> <script src=../../assets/javascripts/bundle.5a2dcb6a.min.js></script> <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script> </body> </html>
