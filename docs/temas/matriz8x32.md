@@ -94,7 +94,7 @@ Para demostrar esto se anima al lector a analizar el posible resultado de un sim
 Si cargamos el programa [Ej_no_matriz.abp](../programas/Ej_no_matriz.abp) en nuestra placa y lo hacemos funcionar con el panel conectado podremos observar como su comportamiento nada tiene que ver con el esperado.
 
 ### <FONT COLOR=#AA0000>Ejemplos de uso</font>
-Vamos a ver una serie de ejemplos de uso del panel tratado como tira de LEDs direccionables para ver que así funciona perfectamente.
+Vamos a ver una serie de ejemplos de **uso del panel tratado como tira de LEDs direccionables** para ver que así funciona perfectamente.
 
 * **A1. Encender y apagar todos los LEDs**. En esta primera actividad vamos a establecer un nivel de brillo lo suficientemente bajo (15) como para que cuando se enciendan todos los LEDs nuestro USB no se desconecte por exceso de consumo. Si queremos trabajar con brillos mayores basta con alimentar el panel a través de los cables destinados a ello con una fuente de alimentación adecuada, pero recordemos el consumo máximo que pueden llegar a tener si los ponemos todos a máximo brillo y en blanco, que supera los 15A. Por otro lado en el bucle de encendido hemos dado un pequeño retardo que demuestra claramente como están conectados los LEDs. En el enlace tenemos el programa [A1. Encender y apagar todos los LEDs](../programas/on_off.abp) siguiente:
 
@@ -179,7 +179,7 @@ También existe una herramienta de generación de los datos a partir de una imag
 </center>
 
 ***
-<font color=#aa55ff><font size="5"><b>Aunque podemos crear efectos y alguna cosa mas parece evidente que hoy por hoy no se trabaja con eficiencia en ArduinoBlocks con este tipo de elementos. Vamos a ver a continuación como hacerlo de una mejor manera utilizando el IDE de Arduino y las librerías necesarias para su funcionamiento.</b></font size="2"></font>
+<font color=#aa55ff><font size="5"><b>Aunque podemos crear efectos y alguna cosa mas parece evidente que hoy por hoy (enero de 2023) no se trabaja con eficiencia en ArduinoBlocks con este tipo de elementos. Vamos a ver a continuación como hacerlo de una mejor manera utilizando el IDE de Arduino y las librerías necesarias para su funcionamiento.</b></font size="2"></font>
 
 ***
 
@@ -203,7 +203,7 @@ Por lo tanto, todos nuestros programas o sketches deben incluir como cabecera la
 ~~~
 
 ### <FONT COLOR=#AA0000>Librería GFX</font>
-Se trata de una librería que nos proporciona un conjunto de funciones gráficas que incluyen líneas, círculos y texto y que se utilizan de forma habitual en pantallas LCD y OLED. Utiliza un sistema de coordenadas y unidades que permiten referenciar cada pixel a partir de un punto o coordenada de origen (0,0) que se sitúa en la esquina superior izquierda, de maneera que X es positivo hacia la derecha e Y hacía abajo. Es posible aplicar hasta cuatro rotaciones para indicar que esquina de la pantalla representa la parte superior izquierda.
+Se trata de una librería que nos proporciona un conjunto de funciones gráficas que incluyen líneas, círculos y texto y que se utilizan de forma habitual en pantallas LCD y OLED. Utiliza un sistema de coordenadas y unidades que permiten referenciar cada pixel a partir de un punto o coordenada de origen (0,0) que se sitúa en la esquina superior izquierda, de manera que X es positivo hacia la derecha e Y hacía abajo. Es posible aplicar hasta cuatro rotaciones para indicar que esquina de la pantalla representa la parte superior izquierda.
 
 Las coordenadas siempre se expresan en pixeles, lo que implica que no existe una escala de medida real como el milímetro, y por lo tanto el tamaño de un determinado gráfico es función del tamaño del punto o de la densidad de pixeles de la pantalla en la que se muestra. El número de puntos de una pantalla se suele indicar en su datasheet o bien calcular midiendo el ancho de la misma y dividiendo por la cantidad de pixeles.
 

@@ -1,7 +1,6 @@
-16x16 led matrix project# <FONT COLOR=#8B008B>Matriz o panel de 16x16</font>
+# <FONT COLOR=#8B008B>Matriz o panel de 16x16</font>
 
 ## <FONT COLOR=#007575>**Descripción**</font>
-
 En realidad se trata de tiras de 256 LEDs dispuestos en forma de panel o matriz que tienen el aspecto de la figura siguiente:
 
 <center>
@@ -169,6 +168,8 @@ En este apartado vamos a crear algún ejemplo utilizando este conjunto de placas
 
 También vamos a ver los ejemplos disponibles en la página [16x16 RGB LED Panel Arduino Projects](https://www.instructables.com/16x16-RGB-LED-Panel-Arduino-Projects/) by coberfranc en Autodesk Instructables.
 
+Para instalar las placas ESP32, nos dirigimos a 'URLs adicionales de gestor de placas' disponible en 'Preferencias' y [pegaremos la URL](https://dl.espressif.com/dl/package_esp32_index.json). Esto hará que tengamos estas placas disponibles en el gestor de placas desde podemos instalarlas.
+
 Siempre vamos a partir de la base de que en el gestor de placas ya hemos instalado el [Arduino Core for ESP32](https://github.com/espressif/arduino-esp32) de [Espressif Systems](https://github.com/espressif) tal y como vemos en la figura siguiente:
 
 <center>
@@ -270,7 +271,7 @@ void loop() {
 
 El video siguiente nos muestra el funcionamiento del ejemplo:
 
-</center>
+<center>
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/tTY8ZMNAncY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
@@ -324,7 +325,7 @@ void loop() {
 
 El video siguiente nos muestra el funcionamiento del ejemplo:
 
-</center>
+<center>
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/OLOSoVND4sg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 

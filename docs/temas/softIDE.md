@@ -178,7 +178,7 @@ En la animación vemos como cargar el programa y el funcionamiento en la ventana
 
 </center>
 
-### <FONT COLOR=#AA0000>Debugger</fonbasicat>
+### <FONT COLOR=#AA0000>Debugger</font>
 El depurador se utiliza para probar y depurar programas. Básicamente lo que permite es navegar a través de la ejecución de un programa, lo que sirve para detectar fallos o errores de código.
 
 El depurador solamente está disponible con las placas SAMD.

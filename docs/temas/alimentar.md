@@ -59,7 +59,7 @@ Por otro lado tenemos que tener en cuenta la sección del conductor que será m�
 En general podemos decir que:
 
 * La regla general de los "60 miliamperios" es solo eso... una regla general, no ciencia pura.
-* Al animar y mezclar colores, el consumo de corriente seamperimetrorá menor. A veces mucho menos.
+* Al animar y mezclar colores, el consumo de corriente será menor. A veces mucho menos.
 * Incluso cuando se establece el color en 0 (LEDs apagados), la lógica del controlador dentro de cada Pixel usa una pequeña cantidad de corriente por debajo de 1 miliamperio por píxel, pero con muchos píxeles esto debería también sumarse.
 
 La biblioteca NeoMatrix utiliza la corrección gamma para seleccionar niveles de brillo que son visualmente (aunque no numéricamente) equidistantes. Hay 32 niveles para rojo y azul, 64 niveles para verde. La función Color() realiza la conversión necesaria; no necesitamos hacer ningún cálculo. Acepta valores de rojo, verde y azul de 8 bits y devuelve un color de 16 bits con corrección gamma.
