@@ -160,6 +160,29 @@ Como ayuda para conectar dispositivos I2C a nuestra placa de control expandiendo
 
 </center>
 
+### <FONT COLOR=#AA0000>Conexionado</font>
+El conexionado de este tipo de elementos requiere de los dos cables de alimentación mas los cables de comunicación I2C para las señales SDA y SCL. En la tabla siguiente vemos cuales son estos pines en los modelos de placa mas comunes.
+
+<center>
+
+|Placa|Pin SDA|Pin SCL|
+|:-:|:-:|:-:|
+|UNO|A4|A5|
+|Nano|A4|A5|
+|Mega|20|21|
+
+</center>
+
+En la figura siguiente vemos el conexionado en el caso de una placa tipo UNO.
+
+<center>
+
+![Conexión entre matriz y placa UNO](../img/matriz8x8/conex_iic.png)
+
+*Conexión entre matriz y placa UNO*
+
+</center>
+
 ### <FONT COLOR=#AA0000>Programación por bloques</font>
 Esta matriz la vamos a programar con ArduinoBlocks, donde tenemos disponibles los bloques y el diseñador de mapas de bits que podemos apreciar en la figura siguiente:
 
@@ -484,8 +507,23 @@ void loop() {
 * **getColumnCount()**. Cuenta el número de columnas.
 * **getChar()**. Carga un caracter en el buffer de usuario.
 * **setChar()**. Carga un caracter en la columna especificada.
-* **transform()**. Permite aplicar transformaciones como rotar, desplazar, invertir, etc, en la información que se muestra en la matriz.
+* **transform()**. Permite aplicar transformaciones como rotar, desplazar, invertir, etc, en la información que se muestra en la matriz. En la tabla siguiente vemos las transformaciones que se pueden realizar con la función transform().
 
-En el ejemplo siguiente tenemos el programa [3_prueba_inicial](../programas/MAX72xx/3_prueba_inicial.zip) en el que se aplican algunas de estas funciones.
+<center>
+
+|Parámetro|Transformación que realiza|
+|:-:|---|
+|MD_MAX72XX::TSL|Desplazar un píxel a la izquierda|
+|MD_MAX72XX::TSR|Desplazar un píxel a la derecha|
+|MD_MAX72XX::TSU|Desplazar un píxel hacia arriba|
+|MD_MAX72XX::TSD|Desplazar un píxel hacia abajo|
+|MD_MAX72XX::TFLR|Voltear de derecha a izquierda|
+|MD_MAX72XX::TFUD|Voltear de arriba hacia abajo|
+|MD_MAX72XX::TR|Rotar 90 grados en sentido horario|
+|MD_MAX72XX::TINV|Invertir píxeles|
+
+</center>
+
+En el ejemplo siguiente tenemos el programa [3_prueba_inicial](../programas/MAX72xx/3_prueba_inicial.zip) en el que se aplican algunas de estas funciones y se incluyen dos transformaciones.
 
 En los ejemplos que acompañan a la librería y en las referencia dadas podemos encontrar mucha mas información sobre este tipo de elementos.
