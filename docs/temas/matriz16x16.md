@@ -233,8 +233,6 @@ En el siguiente video vemos el funcionamiento del ejemplo:
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/BAM5cENR7jA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-</center>
-
 ### <FONT COLOR=#AA0000>Colores aleatorios en el panel</font>
 Se trata del ejemplo [16random.ino](https://content.instructables.com/F6A/P4G0/K5ME7GZ9/F6AP4G0K5ME7GZ9.ino) en el que se van encendiendo de forma y en color aleatorio diferentes pixeles. Este es el código adaptado a ESP32 STEAMaker + TdR STEAM:
 
@@ -487,7 +485,7 @@ El video siguiente nos muestra el funcionamiento del ejemplo:
 
 <center>
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/YVKq5vzJKpk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/TTJQEFsm1pY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 </center>
 
